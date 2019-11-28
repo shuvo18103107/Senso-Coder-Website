@@ -1,8 +1,24 @@
+<?php 
+	session_start(); 
+
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
+	}
+
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['username']);
+		header("location: login.php");
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-<title>Iubat senso coder</title>
+<title>senso coder</title>
 <link rel="stylesheet" href="styles/style.css">
 <link rel="stylesheet"
 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
@@ -12,6 +28,22 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
 </head>
 <body>
+
+	<div class="content">
+
+		<!-- notification message -->
+		<?php if (isset($_SESSION['success'])) : ?>
+			<div class="error success" >
+				<h3>
+					<?php 
+						echo $_SESSION['success']; 
+						unset($_SESSION['success']);
+					?>
+				</h3>
+			</div>
+		<?php endif ?>
+
+
 	<!-----Navigationbar----->
 	<section id="nav-bar">
 		<nav class="navbar navbar-expand-lg navbar-light">
@@ -415,7 +447,10 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <!----------Footer---->
 <section id="footer">
 	<div class="container text-center">
-		<p><a href="login.html">Login/signup<a/></p>
+		<?php  if (isset($_SESSION['username'])) : ?>
+			
+			<p> <?php echo $_SESSION['username']; ?><a href="index.php?logout='1'" style="color: red;"> logout</a> </p>
+		<?php endif ?>
 	</div>
 </section>
 <!-----footer end--->
@@ -428,3 +463,4 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 </body>
 </html>
+
