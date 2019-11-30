@@ -24,7 +24,7 @@
 	} 
 
 	$currentUser = $_SESSION['username'];
-	$sql = "DELETE * FROM users WHERE username = ('$currentUser')";
+	$sql = "DELETE FROM users WHERE username='$currentUser'";
 	if ($conn->query($sql) == TRUE) {
     	echo "Account deleted successfully";
 	} else {
@@ -34,4 +34,4 @@
 	$conn->close();
 ?>
 </br>
-<a href="index.php"> Home </a>
+<a href="index.php?logout='1'"> Go back</a>
