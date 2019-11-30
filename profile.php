@@ -3,6 +3,12 @@
 <head>
 <title>Profile</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript">
+function confirm_delete() {
+  return confirm('are you sure?');
+}
+</script>
 <style>
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -60,8 +66,8 @@ button:hover, a:hover {
 	}
 
 
- 	$Dusername = "ab";
-    $Demail = "ab";
+ 	$Dusername = "null";
+    $Demail = "null";
 
 	
 
@@ -100,11 +106,10 @@ button:hover, a:hover {
   <h1><?php echo $Dusername ?></h1>
   <h2><?php echo $Demail ?></h2>
   <h2>Cources taken: 0</h2>
-  <!---p><a href="delete.php"> Delete account </a></p> -->
+  <p><a href="delete.php" onclick="return confirm_delete()"> Delete account </a></p>
   <p> <a href="index.php"> Go back </a></p>
 </div>
 
 </body>
 </html>
-
 
