@@ -28,7 +28,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
 </head>
 <body>
-
+	<!----Login notification---->
 	<div class="content">
 
 		<!-- notification message -->
@@ -42,6 +42,9 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 				</h3>
 			</div>
 		<?php endif ?>
+
+	<!-----Profile---->
+
 
 
 	<!-----Navigationbar----->
@@ -449,7 +452,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<div class="container text-center">
 		<?php  if (isset($_SESSION['username'])) : ?>
 			
-			<p> <?php echo $_SESSION['username']; ?><a href="index.php?logout='1'" style="color: red;"> logout</a> </p>
+			<p> <a href="profile.php"> <?php echo $_SESSION['username']; ?> </a> <a href="index.php?logout='1'"> logout</a> </p>
 		<?php endif ?>
 	</div>
 </section>
