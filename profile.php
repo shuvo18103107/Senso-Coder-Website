@@ -106,6 +106,7 @@ button:hover, a:hover {
   <h1><?php echo $Dusername ?></h1>
   <h2><?php echo $Demail ?></h2>
   <h2>Cources taken: 0</h2>
+  <p><a href="get_update.php"> Change username </a>
   <p><a href="delete.php" onclick="return confirm_delete()"> Delete account </a></p>
   <p> <a href="index.php"> Go back </a></p>
 </div>
